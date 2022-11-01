@@ -16,16 +16,28 @@ const images = [
 ];
 
 const listElements = document.querySelector(".gallery");
+const elements = images
+  .map(
+    (image) => `<li>
+  <img src='${image.url}' alt= '${image.alt}'
+  width = '300'
+</li>`
+  )
+  .join("");
 
-const arr = [];
+listElements.insertAdjacentHTML("beforeend", elements);
+listElements.style.cssText = `displey: flex;
+flex-wrap: wrap;
+`;
+// const arr = [];
 
-for (let i = 0; i < images.length; i += 1) {
-  const newItem = document.createElement("li");
-  const newImg = document.createElement("img");
-  newImg.setAttribute("src", images[i].url);
-  newImg.setAttribute("alt", images[i].alt);
-  newItem.append(newImg);
-  arr.push(newItem);
-}
-listElements.append(...arr);
-console.log(listElements);
+// // for (let i = 0; i < images.length; i += 1) {
+// //   const newItem = document.createElement("li");
+// //   const newImg = document.createElement("img");
+// //   newImg.setAttribute("src", images[i].url);
+// //   newImg.setAttribute("alt", images[i].alt);
+// //   newItem.append(newImg);
+// //   arr.push(newItem);
+// // }
+// listElements.append(...arr);
+// console.log(listElements);
